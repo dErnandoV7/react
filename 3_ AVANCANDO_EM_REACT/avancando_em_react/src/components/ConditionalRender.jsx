@@ -11,14 +11,14 @@ const ConditionalRender = () => {
             {x && <p>se x for true sim</p>}
             {/* 8. else */}
             {name == "Ernando" ? (
-                <div>
+                <>
                     <h3>Sim, pois o nome é Ernando</h3>
                     <h1>Olá, Ernando</h1>
-                </div>
+                </>
             ) : (
-                <div>
+                <>
                     <h3>Não, pois o nome não é Ernando</h3>
-                </div>
+                </>
             )}
         </div>
     )
