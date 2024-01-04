@@ -1,5 +1,7 @@
 import './App.css'
 
+import { useState } from 'react'
+
 // 2. Imagem em assets
 import night from './assets/night.jpg'
 
@@ -24,6 +26,13 @@ import Fragment from './components/Fragment'
 // 13. Children prop
 import Container from './components/Container'
 
+// 14. Funcao em prop
+import ExeFunction from './components/ExeFunction'
+
+// 15. state lift
+import Message from './components/Message'
+import ChangeMessage from './components/ChangeMessage'
+
 // 11. Renderização de listas com componentes
 const cars = [
   { id: 1, brand: "Ferrari", color: "Vermelho", km: 0 },
@@ -32,6 +41,18 @@ const cars = [
 ]
 
 function App() {
+
+  function showMessage() {
+    console.log("Evento com funcao em prop")
+  }
+
+  // 15. state lift
+  const [message, setMessage] = useState("")
+
+  function handleMessage(msg) {
+    setMessage(msg)
+  }
+
   return (
     <div className="App" style={{ paddingBottom: '500px' }}>
       <h1>Avançando em React</h1>
@@ -73,7 +94,7 @@ function App() {
 
       <Container>
         <h2>Completei aqui, meu chapa!</h2>
-        
+
         {cars.map(car => (
           <CarDetails
             brand={car.brand}
@@ -81,6 +102,12 @@ function App() {
             km={car.km} />
         ))}
       </Container>
+      {/* 14. Funcao em prop */}
+      <ExeFunction myFunction={showMessage} />
+
+      {/* 15. state lift */}
+      <Message msg={message} />
+      <ChangeMessage handleMessage={handleMessage} />
     </div>
   )
 }
