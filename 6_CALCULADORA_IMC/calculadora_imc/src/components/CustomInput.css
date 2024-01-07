@@ -1,0 +1,22 @@
+label,
+input {
+    display: block;
+}
+
+label {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+span {
+    color: #fff;
+}
+
+input {
+    margin-top: 6px;
+    background: #fff;
+    border: none;
+    padding: 12px 4px;
+    width: 100%;
+    font-size: 14px;
+}

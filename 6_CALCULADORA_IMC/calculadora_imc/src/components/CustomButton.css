@@ -1,0 +1,18 @@
+button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 1px 5px 27px 4px #00000024;;
+}
+
+.limpar {
+    background: #000;
+}
+
+.calcular {
+    background: red;
+}
