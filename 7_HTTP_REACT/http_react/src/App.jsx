@@ -1,54 +1,54 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
+import { useFetch } from "./hooks/useFetch";
 
-const url = "http://localhost:3000/products"
+const url = "http://localhost:3000/products";
 
-import './App.css'
+import "./App.css";
 
 function App() {
   // 1. Resgatando dados
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
-  const updateData = async () => {
+  // 4. Custom Hooks
+  const { data: items } = useFetch(url);
 
-    async function getData() {
-      const res = await fetch(url)
-      const data = await res.json()
+  // useEffect(() => {
+  //   async function getData() {
+  //     const res = await fetch(url);
+  //     const data = await res.json();
 
-      setProducts(data)
-    }
+  //     setProducts(data);
+  //   }
 
-    getData()
-  }
-
-  useEffect(() => {
-    updateData()
-  }, [])
+  //   getData();
+  // }, []);
 
   // 2. enviando dados
-  const [name, setName] = useState("")
-  const [price, setPrice] = useState("")
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const product = {
       name,
       price,
-      id: products[products.length - 1].id + 1
-    }
-    setName("")
-    setPrice("")
+      id: products[products.length - 1].id + 1,
+    };
+    setName("");
+    setPrice("");
 
     const res = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
       },
-      body: JSON.stringify(product)
-    })
+      body: JSON.stringify(product),
+    });
 
-    updateData()
-  }
+    const addProduct = await res.json();
+    setProducts([...products, addProduct]);
+  };
 
   return (
     <div className="App">
@@ -56,11 +56,12 @@ function App() {
 
       {/* 1. Resgatando dados */}
       <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            {product.name} - {product.price}
-          </li>
-        ))}
+        {items &&
+          items.map((product) => (
+            <li key={product.id}>
+              {product.name} - {product.price}
+            </li>
+          ))}
       </ul>
 
       {/* 2. Enviando dados */}
@@ -68,19 +69,29 @@ function App() {
         <form onSubmit={handleSubmit}>
           <label>
             <span>Nome</span>
-            <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder='Insira seu nome' />
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Insira seu nome"
+            />
           </label>
 
           <label>
             <span>Preço</span>
-            <input type="text" value={price} onChange={e => setPrice(e.target.value)} placeholder='Insira o preço do produto' />
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+              placeholder="Insira o preço do produto"
+            />
           </label>
 
           <input type="submit" value="Enviar" />
         </form>
       </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
