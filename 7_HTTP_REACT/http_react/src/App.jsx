@@ -7,21 +7,9 @@ import "./App.css";
 
 function App() {
   // 1. Resgatando dados
-  const [products, setProducts] = useState([]);
 
   // 4. Custom Hooks
-  const { data: items } = useFetch(url);
-
-  // useEffect(() => {
-  //   async function getData() {
-  //     const res = await fetch(url);
-  //     const data = await res.json();
-
-  //     setProducts(data);
-  //   }
-
-  //   getData();
-  // }, []);
+  const { data: items, httpConfig } = useFetch(url);
 
   // 2. enviando dados
   const [name, setName] = useState("");
@@ -30,24 +18,14 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // 5. Refatorando post
     const product = {
       name,
       price,
-      id: products[products.length - 1].id + 1,
+      id: items[items.length - 1].id + 1,
     };
-    setName("");
-    setPrice("");
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(product),
-    });
-
-    const addProduct = await res.json();
-    setProducts([...products, addProduct]);
+    httpConfig(product, "POST")
   };
 
   return (
