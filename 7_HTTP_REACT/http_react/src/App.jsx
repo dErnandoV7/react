@@ -9,7 +9,7 @@ function App() {
   // 1. Resgatando dados
 
   // 4. Custom Hooks
-  const { data: items, httpConfig } = useFetch(url);
+  const { data: items, httpConfig, loading } = useFetch(url);
 
   // 2. enviando dados
   const [name, setName] = useState("");
@@ -19,13 +19,14 @@ function App() {
     e.preventDefault();
 
     // 5. Refatorando post
-    const product = {
-      name,
-      price,
-      id: items[items.length - 1].id + 1,
-    };
-
-    httpConfig(product, "POST")
+    httpConfig(
+      {
+        name,
+        price,
+        id: items[items.length - 1].id + 1,
+      },
+      "POST"
+    );
   };
 
   return (
@@ -33,6 +34,7 @@ function App() {
       <h1>HTTP em React</h1>
 
       {/* 1. Resgatando dados */}
+      {loading && <p>Carregando...</p>}
       <ul>
         {items &&
           items.map((product) => (
