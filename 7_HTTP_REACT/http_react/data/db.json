@@ -49,6 +49,11 @@
       "id": 14,
       "name": "pasta de dente",
       "price": "gratis"
+    },
+    {
+      "id": 15,
+      "name": "mostarda",
+      "price": "23"
     }
   ]
 }

@@ -9,7 +9,7 @@ function App() {
   // 1. Resgatando dados
 
   // 4. Custom Hooks
-  const { data: items, httpConfig, loading } = useFetch(url);
+  const { data: items, httpConfig, loading, error } = useFetch(url);
 
   // 2. enviando dados
   const [name, setName] = useState("");
@@ -27,16 +27,22 @@ function App() {
       },
       "POST"
     );
+
+    setName("");
+    setPrice("");
   };
 
   return (
     <div className="App">
       <h1>HTTP em React</h1>
 
+      {/* X. Tratando erros */}
+      {error && <p>{error}</p>}
       {/* 1. Resgatando dados */}
       {loading && <p>Carregando...</p>}
       <ul>
         {items &&
+          !error &&
           items.map((product) => (
             <li key={product.id}>
               {product.name} - {product.price}
@@ -67,7 +73,12 @@ function App() {
             />
           </label>
 
-          <input type="submit" value="Enviar" />
+          {/* 7. Loading com post */}
+          {loading ? (
+            <input type="submit" disabled value="Aguarde um pouco" />
+          ) : (
+            <input type="submit" value="Enviar" />
+          )}
         </form>
       </div>
     </div>
