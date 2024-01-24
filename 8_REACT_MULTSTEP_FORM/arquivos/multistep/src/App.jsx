@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>Deixe sua avaliação</h1>
+        <h2>Deixe sua avaliação</h2>
         <p>
           Ficamos felizes com a sua compra, utilize o formulário abaixo para
           avaliar o produto
