@@ -12,19 +12,26 @@ import { useState } from "react";
 
 import "./App.css";
 
+const formTemplate = {
+  name: "",
+  email: "",
+  review: "",
+  comment: "",
+};
+
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [data, setData] = useState(formTemplate);
+
+  function updateFieldHandler(key, value) {
+    setData((prev) => {
+      return { ...prev, [key]: value };
+    });
+  }
 
   const components = [
-    <UserForm
-      name={name}
-      setName={setName}
-      email={email}
-      setEmail={setEmail}
-    />,
-    <ReviewForm />,
-    <Thanks />,
+    <UserForm data={data} updateFieldHandler={updateFieldHandler} />,
+    <ReviewForm data={data} updateFieldHandler={updateFieldHandler} />,
+    <Thanks data={data} updateFieldHandler={updateFieldHandler} />,
   ];
 
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } =

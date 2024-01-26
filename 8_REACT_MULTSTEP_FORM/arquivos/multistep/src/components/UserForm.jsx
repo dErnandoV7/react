@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const UserForm = ({name, setName, email, setEmail}) => {
-
+const UserForm = ({ data, updateFieldHandler }) => {
   return (
     <div>
       <div className="form-control">
@@ -13,8 +12,8 @@ const UserForm = ({name, setName, email, setEmail}) => {
           name="name"
           placeholder="Insira seu nome"
           required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={data.name}
+          onChange={(e) => updateFieldHandler("name", e.target.value)}
         />
       </div>
       <div className="form-control">
@@ -25,8 +24,8 @@ const UserForm = ({name, setName, email, setEmail}) => {
           name="email"
           placeholder="Insira seu email"
           required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={data.email}
+          onChange={(e) => updateFieldHandler("email", e.target.value)}
         />
       </div>
     </div>

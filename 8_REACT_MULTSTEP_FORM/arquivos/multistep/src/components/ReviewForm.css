@@ -32,3 +32,10 @@
   right: 43%;
   top: 43%
 }
+
+.radio-container p {
+  font-style: italic;
+  font-weight: 300;
+  font-size: .7rem;
+  margin-top: .4rem;
+}

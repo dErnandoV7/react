@@ -3,7 +3,7 @@ import { FiSend } from "react-icons/fi";
 import "./Steps.css";
 import React, { useState } from "react";
 
-const Steps = ({ currentStep, changeStep }) => {
+const Steps = ({ currentStep }) => {
   function changeClass(index) {
     return currentStep >= index ? "active" : "";
   }
