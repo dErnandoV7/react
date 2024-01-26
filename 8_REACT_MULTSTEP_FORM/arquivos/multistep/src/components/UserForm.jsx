@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 
-const UserForm = () => {
+const UserForm = ({name, setName, email, setEmail}) => {
 
   return (
-    <form>
+    <div>
       <div className="form-control">
         <label htmlFor="name">Nome:</label>
         <input
@@ -13,6 +13,8 @@ const UserForm = () => {
           name="name"
           placeholder="Insira seu nome"
           required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
       </div>
       <div className="form-control">
@@ -23,9 +25,11 @@ const UserForm = () => {
           name="email"
           placeholder="Insira seu email"
           required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-    </form>
+    </div>
   );
 };
 

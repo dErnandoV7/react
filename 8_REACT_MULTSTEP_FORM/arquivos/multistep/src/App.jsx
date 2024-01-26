@@ -4,14 +4,28 @@ import { FiSend } from "react-icons/fi";
 import UserForm from "./components/UserForm";
 import ReviewForm from "./components/ReviewForm";
 import Thanks from "./components/Thanks";
+import Steps from "./components/Steps";
 
 // Hooks
 import { useForm } from "./hooks/UseForm";
+import { useState } from "react";
 
 import "./App.css";
 
 function App() {
-  const components = [<UserForm />, <ReviewForm />, <Thanks />];
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const components = [
+    <UserForm
+      name={name}
+      setName={setName}
+      email={email}
+      setEmail={setEmail}
+    />,
+    <ReviewForm />,
+    <Thanks />,
+  ];
 
   const { currentStep, currentComponent, changeStep, isLastStep, isFirstStep } =
     useForm(components);
@@ -26,9 +40,9 @@ function App() {
         </p>
       </header>
       <div className="form-container">
-        <p>etapas</p>
-        <div className="inputs-container">{currentComponent}</div>
+        <Steps currentStep={currentStep} changeStep={changeStep} />
         <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
+          <div className="inputs-container">{currentComponent}</div>
           <div className="actions">
             {!isFirstStep && (
               <button

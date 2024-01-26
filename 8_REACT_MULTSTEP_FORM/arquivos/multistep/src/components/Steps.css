@@ -1,0 +1,52 @@
+.steps {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.steps::after {
+  content: "";
+  width: 100%;
+  max-width: 380px;
+  position: absolute;
+  top: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.step {
+    width: 80px;
+    z-index: 1;
+    text-align: center;
+    background: #fff;
+    padding: 0 .5rem;
+}
+
+.step > svg {
+    font-size: 1.6rem;
+    margin-bottom: .2rem;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.active > svg {
+    fill: #7076f4;
+}
+
+@media (max-width:310px) {
+    .steps {
+        flex-direction: column;
+    }
+
+    .steps::after {
+        display: none;
+    }
+}
