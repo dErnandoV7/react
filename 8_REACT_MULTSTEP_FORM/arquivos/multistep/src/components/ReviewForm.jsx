@@ -17,7 +17,7 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
             type="radio"
             value="unsatisfied"
             name="review"
-            checked={data.review === "unsatisfied"}
+            defaultChecked={data.review === "unsatisfied"}
             onClick={(e) => updateFieldHandler("review", e.target.value)}
             required
           />
@@ -29,7 +29,7 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
             type="radio"
             value="neutral"
             name="review"
-            checked={data.review === "neutral"}
+            defaultChecked={data.review === "neutral"}
             onClick={(e) => updateFieldHandler("review", e.target.value)}
             required
           />
@@ -41,7 +41,7 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
             type="radio"
             value="satisfied"
             name="review"
-            checked={data.review === "satisfied"}
+            defaultChecked={data.review === "satisfied"}
             onClick={(e) => updateFieldHandler("review", e.target.value)}
             required
           />
@@ -53,7 +53,7 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
             type="radio"
             value="very_satisfied"
             name="review"
-            checked={data.review === "very_satisfied"}
+            defaultChecked={data.review === "very_satisfied"}
             onClick={(e) => updateFieldHandler("review", e.target.value)}
             required
           />

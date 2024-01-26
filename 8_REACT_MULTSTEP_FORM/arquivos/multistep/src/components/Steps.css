@@ -21,37 +21,42 @@
 }
 
 .step {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    z-index: 1;
-    text-align: center;
-    background: #fff;
-    padding: 0 .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80px;
+  z-index: 1;
+  text-align: center;
+  background: #fff;
+  padding: 0 0.5rem;
 }
 
-
 .step > svg {
-    font-size: 1.6rem;
-    margin-bottom: .2rem;
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
 }
 
 .active {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .active > svg {
-    fill: #7076f4;
+  fill: #7076f4;
 }
 
-@media (max-width:310px) {
+@media (max-width: 400px) {
     .steps {
-        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
     }
+  .steps::after {
+    display: none;
+  }
+}
 
-    .steps::after {
-        display: none;
-    }
+@media (max-width: 310px) {
+  .steps {
+    flex-direction: column;
+  }
 }
