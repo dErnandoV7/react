@@ -11,6 +11,9 @@ import ErrorPage from "./routes/ErrorPage.jsx";
 // Componente base
 import Home from "./routes/Home.jsx";
 
+// Rota dinamica
+import Product from "./routes/Product.jsx";
+
 // Criando router
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
@@ -28,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      // Rota dinamica
+      {
+        path: "products/:id",
+        element: <Product />,
       },
     ],
   },

@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 body {
   text-align: center;
   display: flex;
@@ -29,4 +35,25 @@ header a {
 footer {
   background: #040404;
   padding: 1rem;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  padding: 30px auto;
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.products li {
+  border: 1px solid #fff;
+  display: flex;
+  padding: 10px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
 }
