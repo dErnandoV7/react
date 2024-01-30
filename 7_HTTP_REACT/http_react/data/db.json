@@ -54,6 +54,16 @@
       "id": 15,
       "name": "mostarda",
       "price": "23"
+    },
+    {
+      "id": 16,
+      "name": "beterraba",
+      "price": "12"
+    },
+    {
+      "id": 18,
+      "name": "qweqweq",
+      "price": "qweqw"
     }
   ]
 }
