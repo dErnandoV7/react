@@ -7,12 +7,15 @@ import { Outlet } from "react-router-dom";
 
 import { Navbar } from "./components/Navbar";
 
+import SearchForm from "./components/SearchForm";
+
 function App() {
   
   return (
     <>
       <header>
         <Navbar />
+        <SearchForm/>
       </header>
       <Outlet/>
       <footer>equipe, footer</footer>

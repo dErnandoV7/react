@@ -1,7 +1,7 @@
 import React from "react";
 
 // Rota dinamica
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
 const Product = () => {
@@ -18,6 +18,7 @@ const Product = () => {
       <p>ID do produto: {id}</p>
       <p>Produto: {product.name}</p>
       <p>Preço: R$ {product.price}</p>
+      <Link to={`info`}>Mais informações</Link>
     </div>
   );
 };
