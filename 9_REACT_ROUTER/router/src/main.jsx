@@ -21,7 +21,11 @@ import Info from "./routes/Info.jsx";
 import Search from "./routes/Search.jsx";
 
 // Criando router
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +56,11 @@ const router = createBrowserRouter([
       {
         path: "search",
         element: <Search />,
+      },
+      // Direction
+      {
+        path: "teste",
+        element: <Navigate to="/" />
       },
     ],
   },
