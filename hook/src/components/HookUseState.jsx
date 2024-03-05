@@ -33,7 +33,6 @@ const HookUseState = () => {
           </label>
         </form>
       </div>
-      <hr />
     </div>
   )
 }
